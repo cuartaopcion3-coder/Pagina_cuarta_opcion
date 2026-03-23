@@ -27,8 +27,8 @@
     <link rel="preload" as="image" href="assets/img/hero/home-hero-1280.webp">
     <link rel="preload" href="assets/fonts/open-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/open-sans-latin-600.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css?v=3">
-    <script src="js/main.js?v=3" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=7">
+    <script src="js/main.js?v=4" defer></script>
 
     <script type="application/ld+json">
     {
@@ -163,21 +163,38 @@
 
         </section>
 
-        <!-- Experience Section -->
-        <section class="section">
+        <!-- SECTION: EXPERIENCE / ABOUT US (Redesigned) -->
+        <section class="section section-experience">
             <div class="container">
-                <div class="grid-2">
-                    <div class="reveal">
-                        <h2>Más de 30 años acompañando procesos de cambio</h2>
-                        <p>Nuestra institución se fundamenta en tres décadas de experiencia ininterrumpida en el abordaje de consumos problemáticos. La solidez de nuestra trayectoria nos permite ofrecer un marco de contención seguro, donde la rigurosidad clínica se une al respeto profundo por la dignidad de cada persona.</p>
-                        <p>Cuarta Opción es un centro especializado que opera bajo el modelo de Comunidad Terapéutica. Nuestra misión es brindar las herramientas necesarias para que el individuo pueda reconstruir su identidad y sus vínculos sociales en un entorno protegido.</p>
-                    </div>
-                    <div class="reveal reveal-delay-2">
-                        <img src="assets/img/hero/experience-lazy.webp" 
-                             alt="Equipo profesional acompañando procesos de cambio" 
-                             width="800" height="450" 
-                             class="img-rounded" 
-                             loading="lazy" decoding="async">
+                <div class="experience-wrapper">
+                    <!-- Decoración de fondo -->
+                    <div class="experience-bg-shape"></div>
+                    
+                    <div class="grid-2 experience-grid">
+                        <div class="experience-content reveal">
+                            <span class="modality-badge">Trayectoria Institucional</span>
+                            <h2 class="experience-title">Más de 30 años acompañando procesos de cambio</h2>
+                            
+                            <div class="experience-text-box">
+                                <p class="lead-text">Nuestra institución se fundamenta en tres décadas de experiencia ininterrumpida en el abordaje de consumos problemáticos.</p>
+                                <p>La solidez de nuestra trayectoria nos permite ofrecer un marco de contención seguro, donde la rigurosidad clínica se une al respeto profundo por la dignidad de cada persona.</p>
+                                <p>Cuarta Opción es un centro especializado que opera bajo el modelo de Comunidad Terapéutica. Nuestra misión es brindar las herramientas necesarias para que el individuo pueda reconstruir su identidad y sus vínculos sociales en un entorno protegido.</p>
+                            </div>
+                            
+                            <a href="institucion.html" class="btn btn-primary u-mt-20">Conocé nuestra institución</a>
+                        </div>
+                        
+                        <div class="experience-image-container reveal reveal-delay-2">
+                            <div class="experience-image-wrapper">
+                                <img src="assets/img/galeria/18.png" alt="Equipo profesional acompañando procesos de cambio" width="800" height="450" class="img-experience" loading="lazy" decoding="async">
+                                
+                                <!-- Floating Stats Card -->
+                                <div class="floating-stat-card">
+                                    <div class="stat-number">+30</div>
+                                    <div class="stat-text">Años de<br>experiencia</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

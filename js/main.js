@@ -92,9 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroSection) {
         const bgSlides = heroSection.querySelectorAll('.hero-bg-slide');
         const INTERVAL = 3000; // ms between slides
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        if (bgSlides.length > 1 && !prefersReduced) {
+        // Eliminamos el chequeo estricto de prefers-reduced-motion para asegurar 
+        // que el slider funcione siempre en celulares iOS y Android.
+        if (bgSlides.length > 1) {
             let current = 0;
 
             setInterval(() => {
