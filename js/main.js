@@ -128,6 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('modal-open');
             modal.style.display = 'flex';
             
+            // Resetear el scroll del modal al principio
+            const wrapper = modal.querySelector('.modal-content-wrapper');
+            if (wrapper) wrapper.scrollTop = 0;
+            
             // Ligeros ms de retraso para que la transición CSS se aplique
             setTimeout(() => {
                 modal.classList.add('active');
@@ -144,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalBody.innerHTML = windowBlogData[articleId];
                     
                     // Extraer solo la caja blanca interna si se extrajo toda la sección
-                    const containerMatches = modalBody.querySelector('.article-body .container');
+                    const containerMatches = modalBody.querySelector('section.article-body .container');
                     if(containerMatches) {
                         const headerContent = modalBody.querySelector('.article-header h1')?.outerHTML || '';
                         modalBody.innerHTML = headerContent + containerMatches.innerHTML;
@@ -168,12 +172,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300); // Matches CSS transition duration
         };
 
-        // Attach listeners to "Leer más" buttons
-        document.querySelectorAll('button.article-card-link').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevents jump to top if href="#" is used
-                const articleId = btn.getAttribute('data-article');
-                openModal(articleId);
+        // Attach listeners to entire article cards
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // If they specifically clicked the button, prevent default to avoid double actions or jumping
+                if(e.target.tagName.toLowerCase() === 'button') {
+                    e.preventDefault();
+                }
+                const btn = card.querySelector('.article-card-link');
+                if (btn) {
+                    const articleId = btn.getAttribute('data-article');
+                    openModal(articleId);
+                }
             });
         });
 
