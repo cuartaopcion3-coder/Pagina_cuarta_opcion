@@ -838,13 +838,23 @@ body.modal-open {
 @media (max-width: 768px) {
     .page-hero-bg {
         /* Bajamos el punto focal en celular para que no se vea solo el cielo/copa de los árboles */
-        background-position: center 85%; 
+        background-position: center bottom !important; 
     }
 }
 
 /* Fixed (parallax) variant — internacion */
 .page-hero-fixed .page-hero-bg {
     background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    /* iOS Safari has issues with background-attachment: fixed and cover */
+    /* This overrides it specifically for mobile */
+    .page-hero-fixed .page-hero-bg {
+        background-attachment: scroll !important;
+        background-position: center bottom !important;
+        height: 100%;
+    }
 }
 
 /* Dark overlay for legibility */
@@ -888,7 +898,6 @@ body.modal-open {
         min-height: 38dvh;
     }
     .page-hero-content { padding: 60px 20px 48px; }
-    .page-hero-fixed .page-hero-bg { background-attachment: scroll; }
 }
 
 
