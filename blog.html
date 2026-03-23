@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Cuarta Opción</title>
     <meta name="description" content="Artículos informativos y orientativos sobre adicciones, recuperación y acompañamiento familiar, elaborados desde una mirada institucional.">
@@ -22,9 +22,10 @@
     <meta name="twitter:title" content="Blog sobre Adicciones | Cuarta Opción">
     <meta name="twitter:description" content="Artículos informativos y orientativos sobre adicciones, recuperación y acompañamiento familiar, elaborados desde una mirada institucional.">
     <meta name="twitter:image" content="https://cuartaopcion.com.ar/assets/img/og-image.png">
-<!-- Custom CSS -->
+    <!-- Custom CSS -->
     <link rel="preload" href="assets/fonts/open-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/blog-data.js" defer></script>
     <script src="js/main.js" defer></script>
 
     <script type="application/ld+json">
@@ -99,10 +100,10 @@
     <main id="main">
         <section class="section section-alt">
             <div class="container container-extra-narrow">
-                <h1>Artículos y recursos</h1>
-                <p>En este espacio compartimos artículos y recursos educativos sobre salud mental, adicciones y el proceso de recuperación integral.</p>
-                <p>Nuestro objetivo es brindar claridad y apoyo tanto a la comunidad en general como a las personas que atraviesan procesos de orientación, manteniendo siempre una base informativa confiable y accesible.</p>
-                <p><strong>¿Buscás ayuda o información para vos o un familiar?</strong> Nuestro equipo puede orientarte de manera confidencial. <a href="contacto.html" data-track="cta" data-cta-type="blog" data-content-type="blog" data-source-page="blog.html">Contactanos para recibir asesoramiento</a>.</p>
+                <h1 class="reveal">Artículos y recursos</h1>
+                <p class="reveal reveal-delay-1">En este espacio compartimos artículos y recursos educativos sobre salud mental, adicciones y el proceso de recuperación integral.</p>
+                <p class="reveal reveal-delay-2">Nuestro objetivo es brindar claridad y apoyo tanto a la comunidad en general como a las personas que atraviesan procesos de orientación, manteniendo siempre una base informativa confiable y accesible.</p>
+                <p class="reveal reveal-delay-3"><strong>¿Buscás ayuda o información para vos o un familiar?</strong> Nuestro equipo puede orientarte de manera confidencial. <a href="contacto.html" data-track="cta" data-cta-type="blog" data-content-type="blog" data-source-page="blog.html">Contactanos para recibir asesoramiento</a>.</p>
             </div>
         </section>
 
@@ -110,89 +111,100 @@
             <div class="container">
                 <div class="blog-grid">
                     <!-- Articulo 1 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-1">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Tener a un familiar en rehabilitación</h2>
                             <p class="article-card-excerpt">La adicción no afecta solo a quien la padece, sino que se extiende como una onda expansiva a todo su entorno familiar y afectivo.</p>
-                            <a href="tener-a-un-familiar-en-rehabilitacion.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="1">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 2 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-2">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Cómo ayudar a un amigo o familiar adicto</h2>
                             <p class="article-card-excerpt">El primer paso para ayudar a alguien que lucha contra la adicción es reconocer que nosotros mismos necesitamos apoyo y orientación.</p>
-                            <a href="como-ayudar-a-un-amigo-o-familiar-adicto.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="2">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 3 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-3">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Comunicándose con alguien que tiene una adicción</h2>
                             <p class="article-card-excerpt">La comunicación es una de las herramientas más poderosas en el proceso de recuperación, pero también una de las más difíciles de manejar.</p>
-                            <a href="comunicandose-con-alguien-que-tiene-una-adiccion.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="3">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 4 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-1">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Cómo dejar de habilitar a un adicto</h2>
                             <p class="article-card-excerpt">Habilitar es hacer por el adicto lo que él debería hacer por sí mismo, protegiéndolo de las consecuencias naturales de sus actos.</p>
-                            <a href="como-dejar-de-habilitar-a-un-adicto.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="4">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 5 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-2">
                         <div class="article-card-content">
                             <h2 class="article-card-title">La importancia de la aceptación en la recuperación</h2>
                             <p class="article-card-excerpt">La aceptación no es resignación; es el reconocimiento valiente de la realidad para poder empezar a transformarla desde sus cimientos.</p>
-                            <a href="la-importancia-de-la-aceptacion-en-la-recuperacion-de-adicciones.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="5">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 6 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-3">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Sosteniendo la sobriedad</h2>
                             <p class="article-card-excerpt">La sobriedad no es un destino al que se llega, sino un camino que se construye día a día con decisiones conscientes y apoyo.</p>
-                            <a href="sosteniendo-la-sobriedad.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="6">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 7 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-1">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Disparadores de recaídas y cómo evitarlos</h2>
                             <p class="article-card-excerpt">Identificar los disparadores internos y externos es fundamental para prevenir recaídas y fortalecer el proceso de recuperación.</p>
-                            <a href="algunos-disparadores-de-recaidas-y-como-evitarlos.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="7">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 8 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-2">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Reconociendo el alcoholismo como una enfermedad</h2>
                             <p class="article-card-excerpt">El alcoholismo es una enfermedad crónica del cerebro, no una falla moral. Entender esto es el primer paso hacia una recuperación real.</p>
-                            <a href="reconociendo-el-alcoholismo-como-una-enfermedad.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="8">Leer más</button>
                         </div>
                     </article>
 
                     <!-- Articulo 9 -->
-                    <article class="article-card">
+                    <article class="article-card reveal reveal-delay-3">
                         <div class="article-card-content">
                             <h2 class="article-card-title">Cómo afecta la marihuana el cerebro</h2>
                             <p class="article-card-excerpt">El consumo de marihuana tiene efectos significativos en el desarrollo cerebral, afectando áreas relacionadas con la memoria y el aprendizaje.</p>
-                            <a href="como-afecta-la-marihuana-el-cerebro.html" class="article-card-link">Leer más</a>
+                            <button class="article-card-link" data-article="9">Leer más</button>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal para Artículos del Blog -->
+    <div id="blog-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay" tabindex="-1"></div>
+        <div class="modal-content-wrapper">
+            <button class="modal-close" aria-label="Cerrar modal">&times;</button>
+            <div id="modal-body" class="modal-body article-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

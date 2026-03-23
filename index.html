@@ -23,7 +23,7 @@
     <meta name="twitter:description" content="Cuarta Opción es una comunidad terapéutica con más de 30 años de trayectoria dedicada al tratamiento integral de las adicciones mediante internación.">
     <meta name="twitter:image" content="https://cuartaopcion.com.ar/assets/img/og-image.png">
     
-    <!-- Custom CSS -->
+    <!-- Preloads & CSS -->
     <link rel="preload" as="image" href="assets/img/hero/home-hero-1280.webp">
     <link rel="preload" href="assets/fonts/open-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/open-sans-latin-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -94,36 +94,85 @@
 
     <main id="main">
         <!-- Hero Section -->
-        <section class="section section-alt u-pt-140">
-            <div class="container text-center container-narrow">
-                <h1>Comunidad Terapéutica y Centro de Rehabilitación en Adicciones</h1>
-                <p class="u-mb-40">Más de 30 años de trayectoria ininterrumpida en el tratamiento residencial de adicciones, brindando un entorno profesional y humano dedicado a la recuperación integral.</p>
-                <div class="u-mb-40">
-                    <a href="internacion.html" class="btn btn-primary">Ver Programa de Internación</a>
-                    <a href="https://wa.me/5491138826673" target="_blank" rel="noopener" class="btn btn-outline u-ml-15">Consultar por WhatsApp</a>
+        <section class="section-hero" id="heroSection" aria-label="Sección principal">
+
+            <!-- Background image layers (auto-fade slider) -->
+            <div class="hero-bg-slides" aria-hidden="true">
+                <div class="hero-bg-slide active">
+                    <img src="assets/img/galeria/05.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="eager" decoding="async" fetchpriority="high">
                 </div>
-                <div class="hero-image-container">
-                    <img src="assets/img/hero/home-hero-1280.webp" 
-                         alt="Acompañamiento profesional en recuperación de adicciones" 
-                         width="1280" height="720" 
-                         class="hero-img" 
-                         loading="eager" 
-                         decoding="async" 
-                         fetchpriority="high"> 
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/04.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/01.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/02.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/15.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/07.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/12.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="assets/img/galeria/14.webp"
+                         alt=""
+                         width="800" height="600"
+                         loading="lazy" decoding="async">
                 </div>
             </div>
+
+            <!-- Semi-transparent overlay for text readability -->
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <!-- Foreground content -->
+            <div class="hero-content text-center">
+                <h1 class="reveal">Comunidad Terapéutica y Centro de Rehabilitación en Adicciones</h1>
+                <p class="u-mb-40 reveal reveal-delay-1">Más de 30 años de trayectoria ininterrumpida en el tratamiento residencial de adicciones, brindando un entorno profesional y humano dedicado a la recuperación integral.</p>
+                <div class="reveal reveal-delay-2">
+                    <a href="internacion.html" class="btn btn-primary">Ver Programa de Internación</a>
+                    <a href="https://wa.me/5491138826673" target="_blank" rel="noopener" class="btn btn-outline-white u-ml-15">Consultar por WhatsApp</a>
+                </div>
+            </div>
+
         </section>
 
         <!-- Experience Section -->
         <section class="section">
             <div class="container">
                 <div class="grid-2">
-                    <div>
+                    <div class="reveal">
                         <h2>Más de 30 años acompañando procesos de cambio</h2>
                         <p>Nuestra institución se fundamenta en tres décadas de experiencia ininterrumpida en el abordaje de consumos problemáticos. La solidez de nuestra trayectoria nos permite ofrecer un marco de contención seguro, donde la rigurosidad clínica se une al respeto profundo por la dignidad de cada persona.</p>
                         <p>Cuarta Opción es un centro especializado que opera bajo el modelo de Comunidad Terapéutica. Nuestra misión es brindar las herramientas necesarias para que el individuo pueda reconstruir su identidad y sus vínculos sociales en un entorno protegido.</p>
                     </div>
-                    <div>
+                    <div class="reveal reveal-delay-2">
                         <img src="assets/img/hero/experience-lazy.webp" 
                              alt="Equipo profesional acompañando procesos de cambio" 
                              width="800" height="450" 
@@ -137,32 +186,49 @@
         <!-- Institutional Pillars Section -->
         <section class="section section-alt">
             <div class="container">
-                <h2 class="text-center u-mb-50">Pilares Institucionales</h2>
+                <h2 class="text-center u-mb-50 reveal">Pilares Institucionales</h2>
                 <div class="grid-3">
-                    <div class="pillar-card">
+
+                    <a href="institucion.html" class="pillar-card pillar-card-link reveal reveal-delay-1">
+                        <div class="pillar-icon">🏥</div>
                         <h3>Profesionalismo</h3>
                         <p class="text-small text-light-muted">Rigurosidad clínica y un equipo interdisciplinario comprometido con la excelencia en el tratamiento.</p>
-                    </div>
-                    <div class="pillar-card">
+                    </a>
+
+                    <a href="internacion.html" class="pillar-card pillar-card-link reveal reveal-delay-2">
+                        <div class="pillar-icon">🤝</div>
                         <h3>Acompañamiento</h3>
                         <p class="text-small text-light-muted">Respeto absoluto por la dignidad humana y contención constante en cada etapa del proceso.</p>
-                    </div>
-                    <div class="pillar-card">
+                    </a>
+
+                    <a href="contacto.html" class="pillar-card pillar-card-link reveal reveal-delay-3">
+                        <div class="pillar-icon">🌱</div>
                         <h3>Ética y Reinserción</h3>
                         <p class="text-small text-light-muted">Transparencia institucional y un enfoque orientado a la plena reinserción social del individuo.</p>
-                    </div>
+                    </a>
+
                 </div>
             </div>
         </section>
 
         <!-- Core Modality Section -->
         <section class="section">
-            <div class="container text-center">
-                <h2 class="u-mb-40">Abordaje Residencial: Internación</h2>
-                <div class="bg-white callout-block shadow-soft container-medium u-m-auto">
-                    <h3>Modalidad de tratamiento</h3>
-                    <p>Contamos con una modalidad exclusiva de internación, diseñada para proporcionar una inmersión terapéutica completa, alejada de los factores de riesgo y orientada exclusivamente a la recuperación bajo supervisión profesional constante.</p>
-                    <a href="internacion.html" class="btn btn-primary">Explorar el Programa Terapéutico</a>
+            <div class="container">
+                <h2 class="text-center u-mb-40 reveal">Abordaje Residencial: Internación</h2>
+                <div class="modality-card reveal reveal-delay-1">
+                    <div class="modality-card-left">
+                        <h3>Modalidad de tratamiento</h3>
+                        <a href="internacion.html" class="btn btn-primary u-mt-30">Explorar el Programa →</a>
+                    </div>
+                    <div class="modality-card-right">
+                        <p>Contamos con una modalidad <strong>exclusiva de internación</strong>, diseñada para proporcionar una inmersión terapéutica completa, alejada de los factores de riesgo y orientada exclusivamente a la recuperación bajo supervisión profesional constante.</p>
+                        <ul class="modality-list">
+                            <li>Supervisión profesional las 24 horas</li>
+                            <li>Entorno protegido y libre de riesgos</li>
+                            <li>Abordaje interdisciplinario personalizado</li>
+                            <li>Reinserción social progresiva y acompañada</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -170,30 +236,30 @@
         <!-- Blog Section -->
         <section class="section section-alt">
             <div class="container text-center">
-                <h2>Espacio de Información y Reflexión</h2>
-                <p class="container-extra-narrow u-m-auto u-mb-50">Acceda a recursos educativos sobre salud mental y el proceso de recuperación en nuestro blog institucional.</p>
-                <a href="blog.html" class="btn btn-outline">Ir al Blog</a>
+                <h2 class="reveal">Espacio de Información y Reflexión</h2>
+                <p class="container-extra-narrow u-m-auto u-mb-50 reveal reveal-delay-1">Acceda a recursos educativos sobre salud mental y el proceso de recuperación en nuestro blog institucional.</p>
+                <a href="blog.html" class="btn btn-outline reveal reveal-delay-2">Ir al Blog</a>
             </div>
         </section>
 
         <!-- Contact Teaser Section -->
         <section class="section">
             <div class="container">
-                <div class="contact-teaser shadow-soft">
-                    <h2 class="u-mb-20">Contacto y Ubicaciones</h2>
-                    <p class="u-mb-40">Estamos para orientarlo en el inicio de este proceso.</p>
-                    
+                <div class="contact-teaser shadow-soft reveal">
+                    <h2 class="u-mb-20" style="color:#ffffff;">Contacto y Ubicaciones</h2>
+                    <p class="u-mb-40" style="color:rgba(255,255,255,0.90);">Estamos para orientarlo en el inicio de este proceso.</p>
+
                     <div class="u-mb-40">
-                        <a href="https://wa.me/5491138826673" target="_blank" rel="noopener" class="btn btn-primary u-mb-20">
+                        <a href="https://wa.me/5491138826673" target="_blank" rel="noopener" class="btn btn-outline-white u-mb-20">
                             Consultar por WhatsApp
                         </a>
-                        <div class="text-small">
+                        <div class="text-small u-mt-20" style="color:rgba(255,255,255,0.85);">
                             <p class="u-mb-10"><strong>Sede Francisco Álvarez:</strong> Jujuy 1025, Buenos Aires</p>
                             <p class="u-mb-10"><strong>Sede La Reja:</strong> Rocha Blaquier 1951, Buenos Aires</p>
                         </div>
                     </div>
-                    
-                    <a href="contacto.html" class="nav-link text-bold">Ver Información Detallada de Contacto</a>
+
+                    <a href="contacto.html" class="btn btn-outline-white">Ver Información Detallada de Contacto</a>
                 </div>
             </div>
         </section>

@@ -1,9 +1,13 @@
 /**
- * CUARTA OPCIÓN - Main Scripts
- * Handling mobile navigation and basic interactions
+ * CUARTA OPCIÓN — Main Scripts v2
+ * Mobile navigation, scroll handling, scroll-reveal animations, GA4 tracking
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // =========================================================
+    // 1. MOBILE NAVIGATION
+    // =========================================================
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
 
@@ -13,84 +17,196 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.querySelectorAll('span').forEach(span => {
                 span.classList.toggle('active', isOpened);
             });
-            
-            // Update ARIA
             menuToggle.setAttribute('aria-expanded', isOpened);
             menuToggle.setAttribute('aria-label', isOpened ? 'Cerrar menú' : 'Abrir menú');
+            // Prevent body scroll while menu is open
+            document.body.style.overflow = isOpened ? 'hidden' : '';
         };
 
         const closeMenu = () => {
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
-                menuToggle.querySelectorAll('span').forEach(span => {
-                    span.classList.remove('active');
-                });
-                
-                // Update ARIA
+                menuToggle.querySelectorAll('span').forEach(span => span.classList.remove('active'));
                 menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.setAttribute('aria-label', 'Abrir menú');
+                document.body.style.overflow = '';
             }
         };
 
         menuToggle.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', closeMenu);
         });
-
-        // Close menu with ESC key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeMenu();
-            }
+            if (e.key === 'Escape') closeMenu();
         });
     }
 
-    // Optimized scroll listener for INP
+    // =========================================================
+    // 2. STICKY HEADER SCROLL EFFECT (optimized with RAF)
+    // =========================================================
     const header = document.querySelector('.header');
     if (header) {
         let ticking = false;
-
         const handleScroll = () => {
             header.classList.toggle('is-scrolled', window.scrollY > 50);
             ticking = false;
         };
-
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 window.requestAnimationFrame(handleScroll);
                 ticking = true;
             }
         }, { passive: true });
-
-        // Initial state
-        handleScroll();
+        handleScroll(); // initial state
     }
+
+    // =========================================================
+    // 3. SCROLL-REVEAL ANIMATION (IntersectionObserver)
+    // =========================================================
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target); // fire once
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        // Fallback: just show everything if observer not supported
+        revealElements.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // =========================================================
+    // 4. HERO BACKGROUND AUTO-SLIDER
+    // =========================================================
+    const heroSection = document.getElementById('heroSection');
+    if (heroSection) {
+        const bgSlides = heroSection.querySelectorAll('.hero-bg-slide');
+        const INTERVAL = 3000; // ms between slides
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (bgSlides.length > 1 && !prefersReduced) {
+            let current = 0;
+
+            setInterval(() => {
+                bgSlides[current].classList.remove('active');
+                current = (current + 1) % bgSlides.length;
+                bgSlides[current].classList.add('active');
+            }, INTERVAL);
+        }
+    }
+
+    // =========================================================
+    // 5. GALLERY: ASPECT RATIO VARIANCE (masonry feel)
+    // =========================================================
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach((item, i) => {
+        if ((i + 1) % 4 === 0 || (i + 1) % 7 === 0) {
+            item.style.gridRowEnd = 'span 2';
+        }
+    });
+
+    // ========================================================
+    // 6. BLOG MODAL LOGIC (Offline / No-CORS Content Loading)
+    // ========================================================
+    const modal = document.getElementById('blog-modal');
+    if (modal) {
+        const modalBody = document.getElementById('modal-body');
+        const closeModalBtn = modal.querySelector('.modal-close');
+        const modalOverlay = modal.querySelector('.modal-overlay');
+
+        const openModal = (articleId) => {
+            document.body.classList.add('modal-open');
+            modal.style.display = 'flex';
+            
+            // Ligeros ms de retraso para que la transición CSS se aplique
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            
+            modalBody.innerHTML = '<div style="text-align:center; padding: 40px;"><div class="spinner">Cargando artículo...</div></div>';
+
+            try {
+                // Leer datos del archivo js/blog-data.js pre-cargado
+                if (typeof windowBlogData !== 'undefined' && windowBlogData[articleId]) {
+                    // Injectamos el contenido directamente
+                    // Ocultamos el título h1 que pueda venir en el extraction para no duplicarlo si ya está en article-header
+                    // (el script extrajo <article class="article-header"> y <section class="article-body">)
+                    modalBody.innerHTML = windowBlogData[articleId];
+                    
+                    // Extraer solo la caja blanca interna si se extrajo toda la sección
+                    const containerMatches = modalBody.querySelector('.article-body .container');
+                    if(containerMatches) {
+                        const headerContent = modalBody.querySelector('.article-header h1')?.outerHTML || '';
+                        modalBody.innerHTML = headerContent + containerMatches.innerHTML;
+                    }
+                    
+                } else {
+                    throw new Error("Article data not found in windowBlogData");
+                }
+            } catch (err) {
+                console.error('Error fetching article:', err);
+                modalBody.innerHTML = '<p style="color:var(--color-primary-dark);text-align:center;margin-top:20px;"><strong>Hubo un error al cargar el artículo.</strong><br> Por favor, asegúrese de estar en un servidor o recargue la página.</p>';
+            }
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                modalBody.innerHTML = ''; // Clear content
+            }, 300); // Matches CSS transition duration
+        };
+
+        // Attach listeners to "Leer más" buttons
+        document.querySelectorAll('button.article-card-link').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevents jump to top if href="#" is used
+                const articleId = btn.getAttribute('data-article');
+                openModal(articleId);
+            });
+        });
+
+        // Close listeners
+        closeModalBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+
 });
 
-/**
- * GA4 Conversion Tracking
- * Measurements for CTAs and navigation clicks using data-attributes
- */
+// =========================================================
+// 5. GA4 CONVERSION TRACKING (passive, fail-safe)
+// =========================================================
 document.addEventListener('click', (e) => {
-    // Fail silently if GA4 is not present
     if (typeof window.gtag !== 'function') return;
 
     const target = e.target.closest('a');
     if (!target) return;
 
-    // A) CTA Click Tracking
     if (target.dataset.track === 'cta') {
         window.gtag('event', 'cta_click', {
-            'cta_type': target.dataset.ctaType || 'unknown',
-            'content_type': target.dataset.contentType || 'unknown',
-            'source_page': target.dataset.sourcePage || window.location.pathname,
-            'link_url': target.href
+            'cta_type':      target.dataset.ctaType     || 'unknown',
+            'content_type':  target.dataset.contentType  || 'unknown',
+            'source_page':   target.dataset.sourcePage   || window.location.pathname,
+            'link_url':      target.href
         });
     }
 
-    // B) Navigation to Contact Tracking
     if (target.dataset.track === 'nav-contact') {
         window.gtag('event', 'nav_contact_click', {
             'source_page': window.location.pathname
