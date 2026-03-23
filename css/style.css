@@ -1728,6 +1728,8 @@ a.pillar-card-link:hover {
 /* SVG color filters */
 .filter-whatsapp { filter: invert(62%) sepia(87%) saturate(366%) hue-rotate(92deg) brightness(96%) contrast(89%); }
 .filter-primary  { filter: invert(21%) sepia(13%) saturate(1251%) hue-rotate(169deg) brightness(92%) contrast(91%); }
+.filter-instagram { filter: invert(34%) sepia(85%) saturate(3362%) hue-rotate(318deg) brightness(98%) contrast(96%); } /* Aproximación al rosa/rojo de IG */
+.filter-facebook { filter: invert(36%) sepia(91%) saturate(2206%) hue-rotate(205deg) brightness(98%) contrast(98%); } /* Aproximación al azul de FB */
 
 /* =============================================
    21a. HERO FULL-WIDTH OVERRIDE
