@@ -1226,10 +1226,27 @@ a.pillar-card-link:hover {
 
 .contact-card-primary::before { background: linear-gradient(90deg, #25D366, #1BAF56); }
 .contact-card-secondary::before { background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2)); }
+.contact-card-instagram::before { background: linear-gradient(90deg, #E1306C, #F56040); }
+.contact-card-facebook::before { background: linear-gradient(90deg, #1877F2, #0d5cbf); }
 
 .contact-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+}
+
+/* Efectos Neón en Hover para Tarjetas de Contacto */
+.contact-card-primary:hover {
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4), 0 0 40px rgba(37, 211, 102, 0.2);
+    border-color: rgba(37, 211, 102, 0.6);
+}
+
+.contact-card-instagram:hover {
+    box-shadow: 0 0 20px rgba(225, 48, 108, 0.4), 0 0 40px rgba(225, 48, 108, 0.2);
+    border-color: rgba(225, 48, 108, 0.6);
+}
+
+.contact-card-facebook:hover {
+    box-shadow: 0 0 20px rgba(24, 119, 242, 0.4), 0 0 40px rgba(24, 119, 242, 0.2);
+    border-color: rgba(24, 119, 242, 0.6);
 }
 
 .contact-card-icon {
@@ -1249,6 +1266,46 @@ a.pillar-card-link:hover {
 
 .contact-card-primary  { border: 2px solid rgba(37, 211, 102, 0.25); }
 .contact-card-secondary { border: 1px solid rgba(29, 53, 87, 0.07); }
+.contact-card-instagram { border: 2px solid rgba(225, 48, 108, 0.25); }
+.contact-card-facebook { border: 2px solid rgba(24, 119, 242, 0.25); }
+
+/* Botones específicos de redes sociales */
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #1BAF56 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.28);
+}
+.btn-whatsapp:hover {
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.6), 0 0 30px rgba(37, 211, 102, 0.4);
+    filter: brightness(1.1);
+    color: #ffffff;
+}
+
+.btn-instagram {
+    background: linear-gradient(135deg, #E1306C 0%, #C13584 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(225, 48, 108, 0.28);
+    border: none;
+}
+.btn-instagram:hover {
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.6), 0 0 30px rgba(225, 48, 108, 0.4);
+    filter: brightness(1.1);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.btn-facebook {
+    background: linear-gradient(135deg, #1877F2 0%, #0d5cbf 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.28);
+    border: none;
+}
+.btn-facebook:hover {
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.6), 0 0 30px rgba(24, 119, 242, 0.4);
+    filter: brightness(1.1);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
 
 /* =============================================
    14. LOCATION CARDS & MAP
@@ -1521,6 +1578,11 @@ a.pillar-card-link:hover {
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-slow), box-shadow var(--transition-slow);
     aspect-ratio: 4/3;
+}
+
+/* Forzar que todas las imágenes ocupen una sola fila en la galería para el grid 3x3 perfecto */
+.gallery-item[style*="grid-row-end"] {
+    grid-row-end: auto !important;
 }
 
 .gallery-item img {
