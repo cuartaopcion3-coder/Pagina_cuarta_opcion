@@ -829,9 +829,17 @@ body.modal-open {
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center;
+    background-position: center center; /* Centro por defecto */
     background-repeat: no-repeat;
     z-index: 0;
+}
+
+/* Specific position adjustments for mobile to show the important part of images */
+@media (max-width: 768px) {
+    .page-hero-bg {
+        /* Bajamos el punto focal en celular para que no se vea solo el cielo/copa de los árboles */
+        background-position: center 85%; 
+    }
 }
 
 /* Fixed (parallax) variant — internacion */
